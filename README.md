@@ -1,3 +1,6 @@
+<img width="640" height="480" alt="training-curve" src="https://github.com/user-attachments/assets/4ef304c2-13ce-4b5e-817d-48ee78890204" />
+
+
 # dqn_game_agent
 DQN reinforcement learning agent playing [ Lunar Lander ] | Python, TensorFlow, NumPy
 # DQN Game Agent 🎮
