@@ -1,35 +1,65 @@
 <img width="640" height="480" alt="training-curve" src="https://github.com/user-attachments/assets/4ef304c2-13ce-4b5e-817d-48ee78890204" />
 
 
-# dqn_game_agent
-DQN reinforcement learning agent playing [ Lunar Lander ] | Python, TensorFlow, NumPy
-# DQN Game Agent 🎮
+# DQN Lunar Lander 🚀
 
 Implementation of a **Deep Q-Network (DQN)** reinforcement learning agent
-that learns to play [Lunar Lander].
+that learns to land a spacecraft in the **Lunar Lander** environment —
+developed as my B.Sc. thesis project in Electrical Engineering
+(Control Systems) at Babol Noshirvani University of Technology.
 
 ## Overview
-This project was developed as my B.Sc. thesis project in Electrical
-Engineering (Control Systems) at Babol Noshirvani University of Technology.
-The agent learns optimal actions through trial and error, using deep
-reinforcement learning.
+The agent learns, entirely through trial and error, to control a lunar
+lander and touch down softly on the landing pad. No hand-crafted rules —
+the control policy is learned purely from interaction with the environment.
+
+## Environment & Actions
+The lander observes its state (position, velocity, angle, angular velocity,
+leg contact) and at each step chooses one of 4 discrete actions:
+- Do nothing
+- Fire left engine
+- Fire right engine
+- Fire main (bottom) engine
 
 ## How It Works
-- **Algorithm:** Deep Q-Network (DQN) — uses a neural network to approximate
-  the Q-value function
-- The agent observes the game state, chooses actions, receives rewards, and
-  gradually improves its strategy
-  
+Deep Reinforcement Learning = Reinforcement Learning + Deep Learning.
+- The agent interacts with the environment: observes state → takes action →
+  receives reward
+- A deep neural network approximates the Q-value function Q(s, a)
+- **Experience replay:** past transitions are stored in a memory buffer and
+  sampled in batches to stabilize training
+- **ε-greedy exploration:** the agent starts by exploring randomly (ε = 1.0)
+  and gradually exploits learned knowledge (ε decays to 0.01)
+
+## Network Architecture & Hyperparameters
+| Component | Value |
+|---|---|
+| Input | State space (8 features) |
+| Hidden layer 1 | Dense 150, ReLU |
+| Hidden layer 2 | Dense 120, ReLU |
+| Output | Dense 4 (actions), Linear |
+| Loss | MSE |
+| Optimizer | Adam (lr = 0.001) |
+| Discount factor (γ) | 0.99 |
+| Batch size | 64 |
+| Replay memory | 1,000,000 transitions |
+| Exploration (ε) | 1.0 → 0.01 (decay = 0.996) |
+
 ## Results
-- After [X] training episodes, the agent reached an average score of [Y]
-  
+After ~400 training episodes, the average episode reward rises from about
+**-450** to a stable **+200 to +300** — the environment is considered
+*solved* at 200 points.
+
+
+
 ## Tech Stack
-- Python | TensorFlow | NumPy 
+Python · TensorFlow (Keras) · NumPy · OpenAI Gym (LunarLander-v2)
 
 ## How to Run
 1. Clone the repository
 2. Install dependencies: `pip install -r requirements.txt`
-3. Run: `python main.py`
+3. Run: `python RUN.py`
 
 ## Author
-[Zahra_keihanian]
+
+[keihanian.zahra@gmail.com][zahra keihanian]
