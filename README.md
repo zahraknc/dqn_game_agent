@@ -4,6 +4,9 @@ https://github.com/user-attachments/assets/e94f5b69-2b05-4102-8963-06d65e8800a7
 
 
 [after.webm](https://github.com/user-attachments/assets/4c518591-edd2-485b-8298-53be6883667e)
+
+
+
 <img width="640" height="480" alt="training-curve" src="https://github.com/user-attachments/assets/4ef304c2-13ce-4b5e-817d-48ee78890204" />
 
 
